@@ -1,50 +1,6 @@
 <?php
 include_once "header.php";
 include "config.php";
-
-
-
-// $IT = array("Information System", "Information Technology", "System Computer", "Design");
-// $Mipa = array("IPA");
-
-// $tes = 'Design';
-
-// function A($IT){
-//   foreach ($IT as $val) {
-//     # code...
-//     echo $val."";
-//   }
-// }
-
-
-// if ($tes == A($IT)) {
-//   # code...
-//   print_r($IT);
-// }
-
-
-
-// $array = array("size", "color", "gold");
-
-// $allvalues = array('tes', 'tes', 'tes');
-
-// function arrayIsNotEmpty($arr) {
-//   if(!is_array($arr)) {
-//   return;
-//   }
-//   return count($arr) != 0;
-//   }
-
-// $cars = array("Toyota","Suzuki","BMW");
-// $months = array();
-// echo arrayIsNotEmpty($cars) ? "array tidak kosong" : "array kosong";
-// echo arrayIsNotEmpty($months) ? "array tidak kosong" : "array kosong";
-
-// if(array_sum($allvalues) == count($allvalues)) {
-//     echo 'all true';
-// } else {
-//     echo 'some false';
-// }
 ?>
 <html>
 
@@ -127,7 +83,8 @@ include "config.php";
     <div class="table-responsive mb-3 row">
       <!-- Tabah Kandidat -->
       <div class="col-sm-12">
-        <a href="Add.php" class="btn btn-primary my-3 float-end">Tambah Kandidat</a>
+        <a href="Add.php" class="btn btn-primary my-3 ms-3 float-end">Tambah Kandidat</a>
+        <a href="http://localhost/adminrekrut/" class="btn btn-light my-3 float-end"><i class="fas fa-redo"></i></a>
       </div>
 
       <table id="example" class="table table-responsive-sm table-striped" style="width:100%;">
@@ -142,7 +99,7 @@ include "config.php";
             <th>Institution</th>
             <th>Major</th>
             <th>Ipk</th>
-            <th>pengalaman</th>
+            <th>pengalaman(Month)</th>
             <th>Kelulusan</th>
             <th>Info/Edit/Hapus</th>
           </tr>
@@ -164,7 +121,12 @@ include "config.php";
               $sql = mysqli_query($conn, "SELECT * FROM cv WHERE nama LIKE '%$Nama%' AND posisi LIKE '$Posisi'");
             } elseif ($Nama and $Status) {
               $sql = mysqli_query($conn, "SELECT * FROM cv WHERE nama LIKE '%$Nama%' AND kelulusan LIKE '$Status'");
-            } elseif ($Nama) {
+            } elseif ($Nama and $Ipk) {
+              $sql = mysqli_query($conn, "SELECT * FROM cv WHERE nama LIKE '%$Nama%' AND ipk LIKE '$Ipk'");
+            } elseif ($Nama and $Telp) {
+              $sql = mysqli_query($conn, "SELECT * FROM cv WHERE nama LIKE '%$Nama%' AND telp LIKE '$Telp'");
+            }
+            elseif ($Nama) {
               $sql = mysqli_query($conn, "SELECT * FROM cv WHERE nama LIKE '%$Nama%'");
             } elseif ($Posisi) {
               $sql = mysqli_query($conn, "SELECT * FROM cv WHERE posisi LIKE '$Posisi'");
@@ -180,6 +142,7 @@ include "config.php";
           } else {
             $sql = mysqli_query($conn, "SELECT * FROM cv");
           }
+
 
           while ($user_data = mysqli_fetch_array($sql)) {
             echo "<tr>";
@@ -203,7 +166,6 @@ include "config.php";
             echo "</td>";
             echo "</tr>";
           }
-
           ?>
 
         </tbody>

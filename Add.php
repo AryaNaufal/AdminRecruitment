@@ -69,7 +69,7 @@ $Tester = mysqli_query($conn, "SELECT DISTINCT position.posisi FROM  position WH
             <option selected></option>
           </select>
         </div>
-        <a href="AddPosition.php" class="btn btn-warning float-end col-auto"><i class="fas fa-user-plus"></i></a>
+        <a href="AddPosition.php" class="btn btn-light float-end col-auto"><i class="fas fa-user-plus"></i></a>
       </div>
       <div class="mb-3 row">
         <label for="chanel" class="col-sm-2 col-form-label">Chanel : </label>

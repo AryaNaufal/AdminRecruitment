@@ -33,21 +33,21 @@ $Tester = mysqli_query($conn, "SELECT DISTINCT position.posisi FROM  position WH
         <label for="date" class="col-sm-2 col-form-label">Tanggal : </label>
         <div class="col-sm-4">
           <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-          <input type="date" class="form-control shadow-none" id="date" placeholder="Tanggal" name="tanggal" value="<?php echo $row['tanggal']; ?>" >
+          <input type="date" class="form-control shadow-none" id="date" placeholder="Tanggal" name="tanggal" value="<?php echo $row['tanggal']; ?>">
         </div>
       </div>
 
       <div class="mb-3 row">
         <label for="nama" class="col-sm-2 col-form-label">Nama : </label>
         <div class="col-sm-4">
-          <input type="text" class="form-control shadow-none" id="nama" name="nama" value="<?php echo $row['nama']; ?>" >
+          <input type="text" class="form-control shadow-none" id="nama" name="nama" value="<?php echo $row['nama']; ?>">
         </div>
       </div>
 
       <div class="mb-3 row">
         <label for="NoTelp" class="col-sm-2 col-form-label">No Telp : </label>
         <div class="col-sm-4">
-          <input type="text" class="form-control shadow-none" id="NoTelp" name="noTelp" value="<?php echo $row['telp']; ?>" >
+          <input type="text" class="form-control shadow-none" id="NoTelp" name="noTelp" value="<?php echo $row['telp']; ?>">
         </div>
       </div>
 
@@ -128,7 +128,12 @@ $Tester = mysqli_query($conn, "SELECT DISTINCT position.posisi FROM  position WH
       <div class="mb-3 row">
         <label for="kelulusan" class="col-sm-2 col-form-label">kelulusan : </label>
         <div class="col-sm-4">
-          <input type="text" class="form-control shadow-none" id="kelulusan" name="kelulusan" value="<?php echo $row['kelulusan']; ?>">
+          <!-- <input type="text" class="form-control shadow-none" id="kelulusan" name="kelulusan" value="<?php echo $row['kelulusan']; ?>"> -->
+          <select name="kelulusan" id="kelulusan" class="form-select shadow-none">
+            <option value="<?php echo $row['kelulusan'] ?>"><?php echo $row['kelulusan'] ?></option>
+            <option value="Lolos">Lolos</option>
+            <option value="Tidak Lolos">Tidak Lolos</option>
+          </select>
         </div>
       </div>
 
@@ -137,9 +142,9 @@ $Tester = mysqli_query($conn, "SELECT DISTINCT position.posisi FROM  position WH
         <label for="experience" class="col-sm-2 col-form-label">Working Experience (Month) : </label>
 
         <div class="col-sm-4">
-          <input type="text" class="form-control shadow-none" id="experience" name="experience" value="<?php echo $row['pengalaman']; ?>" >
+          <input type="text" class="form-control shadow-none" id="experience" name="experience" value="<?php echo $row['pengalaman']; ?>">
           <input type="submit" id="edit" class="btn btn-success mt-3 float-end" name="Edit">
-          <a href="index.php" class="btn btn-danger mt-3 mx-3 float-end">Back</a>
+          <a href="index.php" id="back" class="btn btn-danger mt-3 mx-3 float-end">Back</a>
         </div>
       </div>
     </form>

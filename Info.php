@@ -134,7 +134,7 @@ $Tester = mysqli_query($conn, "SELECT DISTINCT position.posisi FROM  position WH
 
         <div class="col-sm-4">
           <input type="text" class="form-control shadow-none" id="experience" name="experience" value="<?php echo $row['pengalaman']; ?>" disabled>
-          <a href="index.php" class="btn btn-danger mt-3 mx-3 float-end">Back</a>
+          <a href="index.php" class="btn btn-danger mt-3 float-end">Back</a>
         </div>
       </div>
     </form>
