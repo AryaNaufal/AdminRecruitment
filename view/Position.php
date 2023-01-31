@@ -1,15 +1,19 @@
 <?php
-include_once "header.php";
-include "config.php";
+include_once "../header.php";
+include "../config.php";
 
 $ktg = mysqli_query($conn, "SELECT * FROM category");
 
 if (isset($_POST['Submit'])) {
-  # code...
   $Category = $_POST['Category'];
   $Position = $_POST['Position'];
 
-  $sql = mysqli_query($conn, "INSERT INTO position (kategori, posisi) VALUES ('$Category', '$Position')");
+    if ($Category == 'Analyst') { 
+      $sql = mysqli_query($conn, "INSERT INTO position (kategori, posisi) VALUES ('$Category', CONCAT('$Position', ' Analyst'))");
+    } else {
+      $sql = mysqli_query($conn, "INSERT INTO position (kategori, posisi) VALUES ('$Category', '$Position')");
+    }
+
   header("location: add.php");
 }
 ?>
@@ -45,11 +49,10 @@ if (isset($_POST['Submit'])) {
 
 
       <div class="mb-3 row">
-        <label for="position" class="col-sm-2 col-form-label">Position</label>
-
+        <label for="position" class="col-sm-2 col-form-label">Position :</label>
         <div class="col-sm-4">
           <input type="text" class="form-control shadow-none" id="position" name="Position" required>
-          <input type="submit" id="submit" class="btn btn-success mt-3 float-end" name="Submit" onclick="return confirm('Are you sure Want add Position?' + value)">
+          <input type="submit" id="submit" class="btn btn-success mt-3 float-end" name="Submit" onclick="return confirm('Are you sure want to add Position?' + value)">
           <a href="add.php" class="btn btn-danger mt-3 mx-3 float-end">Back</a>
         </div>
       </div>
@@ -58,7 +61,6 @@ if (isset($_POST['Submit'])) {
 
 
 
-  <script src="js/add.js"></script>
   </script>
 </body>
 

@@ -1,6 +1,8 @@
 // DataTable
 $(document).ready(function () {
   $('#example').DataTable({
+    "responsive": true,
+    "scrollX": true,
     "searching": false,
     "ordering": false,
     "lengthChange": false,
