@@ -70,7 +70,7 @@ include 'config.php';
           <a href="view/ResetPass.php" class="">Forgot Password?</a>
         </div>
         <div class="mx-3">
-          <input type="submit" class="btn btn-success float-end" name="submit" value="login">
+          <input type="submit" class="btn btn-success float-end" name="submit" value="Login">
           <a href="Register.php" class="btn btn-primary float-end mx-3">Sign Up</a>
         </div>
       </form>

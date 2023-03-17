@@ -30,7 +30,7 @@ if (isset($_POST['Edit'])) {
   $upload_file = $_FILES['files']['tmp_name'];
   $new_name = $file_name;
 
-  $Lolos = 'CV In';
+  $Lolos = 'CV in';
   $TidakLolos = 'Drop';
 
   if ($file_size < 1000000 and ($file_type == 'pdf' or $file_type == 'docx')) {
@@ -58,7 +58,7 @@ if (isset($_POST['Edit'])) {
 
   $waktu = date("Y-m-d H:i:s");
   if (!empty($new_name)) {
-    mysqli_query($conn, "INSERT INTO history (id, nama, histori, data, waktu, status) VALUES ('$id','$username', 'Menginput', '$Nama', '$waktu', '$Status')");
+    mysqli_query($conn, "INSERT INTO history (id, nama, histori, data, waktu, status) VALUES ('$id','$username', 'Mengupload', '$Nama', '$waktu', '$Status')");
   } elseif (isset($Status)) {
     mysqli_query($conn, "INSERT INTO history (id, nama, histori, data, waktu, status) VALUES ('$id','$username', 'Mengedit', '$Nama', '$waktu', '$Status')");
   }

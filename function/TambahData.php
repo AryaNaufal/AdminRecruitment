@@ -5,7 +5,7 @@ if (isset($_POST['Submit'])) {
   include "../config.php";
 
   $username = $_SESSION['name'];
-  $Tanggal = $_POST['tanggal'];
+  $Tanggal = date("Y-m-d", strtotime($_POST['tanggal']));
   $Nama = $_POST['nama'];
   $Telp = $_POST['noTelp'];
   $Tipe = $_POST['tipe'];
@@ -17,7 +17,7 @@ if (isset($_POST['Submit'])) {
   $Major = $_POST['major'];
   $Ipk = $_POST['ipk'];
   $Pengalaman = $_POST['experience'];
-  $Lolos = 'CV In';
+  $Lolos = 'CV in';
   $TidakLolos = 'Drop';
 
 
@@ -44,10 +44,11 @@ if (isset($_POST['Submit'])) {
     mysqli_query($conn, "INSERT INTO cv (tanggal, nama, telp, type, kategori, posisi, chanel, edukasi, institusi,	jurusan, ipk, pengalaman, kelulusan, status, file_cv, remarks) VALUES ('$Tanggal', '$Nama', '$Telp', '$Tipe', '$Kategori', '$Posisi', '$Chanel', '$Edukasi', '$Institusi', '$Major', '$Ipk', '$Pengalaman', 'Tidak Lolos', '$TidakLolos', '', '')");
   }
 
-  $waktu = date("Y-m-d H:i:s");
+  $waktu =  date("Y-m-d H:i:s");
   $id = mysqli_insert_id($conn);
   $stats = mysqli_query($conn, "SELECT status FROM cv WHERE id = '$id'");
-  mysqli_query($conn, "INSERT INTO history (id, nama, histori, data, waktu, status) VALUES ('$id','$username', 'Menambah', '$Nama', '$waktu', '$stats')");
+  $stat = mysqli_fetch_assoc($stats);
+  mysqli_query($conn, "INSERT INTO history (id, nama, histori, data, waktu, status) VALUES ('$id','$username', 'Menginput', '$Nama', '$waktu', '$stat')");
 
 
   header("location: ../HomePage.php");

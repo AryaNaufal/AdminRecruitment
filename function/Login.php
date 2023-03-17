@@ -20,10 +20,7 @@ if (!empty($mail) && !empty($pass)) {
     // } 
     if ($user_pass) {
       $_SESSION['name'] = $row['nama'];
-      if ($row['role_name'] == 'Administrator') {
-        $_SESSION['role'] = $row['role_name'];
-        header('location: ../HomePage.php');
-      } else if ($row['role_name'] == 'Recruitment Admin') {
+      if ($row['role_name'] == 'Administrator' OR $row['role_name'] == 'Recruitment Admin' OR $row['role_name'] == 'Recruitment Officer') {
         $_SESSION['role'] = $row['role_name'];
         header('location: ../HomePage.php');
       }

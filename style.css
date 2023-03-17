@@ -1,0 +1,60 @@
+html,
+  body {
+    height: 100%;
+    width: 100vw;
+  }
+
+  .layout {
+    display: flex;
+  }
+
+  aside{
+    transition: all 0.5s;
+  }
+
+  .content {
+    width: 100vw !important;
+    overflow: scroll !important;
+  }
+
+  .nav-link:hover {
+    color: #0d6efd !important;
+  }
+
+  .active:hover {
+    color: white !important;
+  }
+
+  span.active {
+    color: #0d6efd !important;
+  }
+
+
+  .close, .menu {
+    visibility: hidden;
+  }
+  
+  
+  @media only screen and (max-width: 768px) {
+    .close, .menu {
+      visibility: visible;
+    }
+    
+    aside{
+      position: absolute;
+      z-index: 4;
+      margin-left: -250px;
+    }
+
+    .layout aside.active {
+      position: absolute;
+      z-index: 4;
+      margin-left: 0;
+      transition: 0.5s;
+    }
+
+    ul li a .active {
+      display: block;
+    }
+    
+  }

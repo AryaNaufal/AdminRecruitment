@@ -1,57 +1,31 @@
 <?php
-include_once '../header.php';
 include '../config.php';
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
-<html>
-<style>
-  html,
-  body {
-    height: 100%;
-  }
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kwad5</title>
 
-  .form {
-    width: 30%;
-  }
+  <link rel="stylesheet" href="../public/bootstrap-5/css/bootstrap.min.css">
 
-  .form i {
-    position: absolute;
-    left: 90%;
-    top: 75%;
-    color: #ccc;
-    cursor: pointer;
-    transform: translateY(-50%);
-  }
 
-  .form i.active::before {
-    color: #333;
-    content: "\f070";
-  }
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
 
-  .form i.i2 {
-    position: absolute;
-    left: 90%;
-    top: 75%;
-    color: #ccc;
-    cursor: pointer;
-    transform: translateY(-50%);
-  }
-
-  .form i.i2.active::before {
-    color: #333;
-    content: "\f070";
-  }
-
-  @media only screen and (max-width: 768px) {
-
-    /* For mobile phones: */
     .form {
-      width: 75%;
+      width: 30%;
     }
 
     .form i {
       position: absolute;
-      left: 85%;
+      left: 90%;
       top: 75%;
       color: #ccc;
       cursor: pointer;
@@ -65,7 +39,7 @@ include '../config.php';
 
     .form i.i2 {
       position: absolute;
-      left: 85%;
+      left: 90%;
       top: 75%;
       color: #ccc;
       cursor: pointer;
@@ -76,11 +50,46 @@ include '../config.php';
       color: #333;
       content: "\f070";
     }
-  }
-</style>
+
+    @media only screen and (max-width: 768px) {
+
+      /* For mobile phones: */
+      .form {
+        width: 75%;
+      }
+
+      .form i {
+        position: absolute;
+        left: 85%;
+        top: 75%;
+        color: #ccc;
+        cursor: pointer;
+        transform: translateY(-50%);
+      }
+
+      .form i.active::before {
+        color: #333;
+        content: "\f070";
+      }
+
+      .form i.i2 {
+        position: absolute;
+        left: 85%;
+        top: 75%;
+        color: #ccc;
+        cursor: pointer;
+        transform: translateY(-50%);
+      }
+
+      .form i.i2.active::before {
+        color: #333;
+        content: "\f070";
+      }
+    }
+  </style>
+</head>
 
 <body class="bg-light">
-
   <div class="h-100 d-flex align-items-center justify-content-center row">
     <div class="form bg-white rounded-3 shadow-sm p-5">
       <h1>Reset Password</h1>
@@ -100,14 +109,13 @@ include '../config.php';
           <input type="password" class="form-control p2" name="passwordChange" id="passwordChange" aria-required="tes">
           <i class="fas fa-eye i2"></i>
         </div>
-        <input type="submit" class="btn btn-success float-end" name="submit" value="Change" >
+        <input type="submit" class="btn btn-success float-end" name="submit" value="Change">
         <a href="../index.php" class="btn btn-danger float-end mx-3">Back</a>
       </form>
     </div>
   </div>
 
   <script src="../js/hidepass.js"></script>
-
 </body>
 
 </html>

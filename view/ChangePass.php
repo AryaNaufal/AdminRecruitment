@@ -1,57 +1,34 @@
 <?php
-include_once '../header.php';
 include '../config.php';
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
-<html>
-<style>
-  html,
-  body {
-    height: 100%;
-  }
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kwad 5</title>
 
-  .form {
-    width: 30%;
-  }
+  <link rel="stylesheet" href="../public/bootstrap-5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../public/fontawesome-6/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet" />
 
-  .form i {
-    position: absolute;
-    left: 93%;
-    top: 75%;
-    color: #ccc;
-    cursor: pointer;
-    transform: translateY(-50%);
-  }
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 
-  .form i.active::before {
-    color: #333;
-    content: "\f070";
-  }
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
 
-  .form i.i2 {
-    position: absolute;
-    left: 93%;
-    top: 75%;
-    color: #ccc;
-    cursor: pointer;
-    transform: translateY(-50%);
-  }
-
-  .form i.i2.active::before {
-    color: #333;
-    content: "\f070";
-  }
-
-  @media only screen and (max-width: 768px) {
-
-    /* For mobile phones: */
     .form {
-      width: 75%;
+      width: 30%;
     }
 
     .form i {
       position: absolute;
-      left: 85%;
+      left: 90%;
       top: 75%;
       color: #ccc;
       cursor: pointer;
@@ -63,21 +40,29 @@ include '../config.php';
       content: "\f070";
     }
 
-    .form i.i2 {
-      position: absolute;
-      left: 85%;
-      top: 75%;
-      color: #ccc;
-      cursor: pointer;
-      transform: translateY(-50%);
-    }
+    @media only screen and (max-width: 768px) {
 
-    .form i.i2.active::before {
-      color: #333;
-      content: "\f070";
+      /* For mobile phones: */
+      .form {
+        width: 75%;
+      }
+
+      .form i {
+        position: absolute;
+        left: 85%;
+        top: 75%;
+        color: #ccc;
+        cursor: pointer;
+        transform: translateY(-50%);
+      }
+
+      .form i.active::before {
+        color: #333;
+        content: "\f070";
+      }
     }
-  }
-</style>
+  </style>
+</head>
 
 <body class="bg-light">
 
