@@ -106,16 +106,7 @@ if (!isset($_SESSION['name'])) {
                 </div>
               </li>
             </ul>';
-            } elseif ($_SESSION['role'] == 'Recruitment Admin') {
-              echo '<ul class="nav nav-pills flex-column mb-auto">
-            <li>
-              <a href="Inputs.php" class="nav-link text-white">
-                <i class="fas fa-keyboard"></i>
-                Input CV
-              </a>
-            </li>
-          </ul>';
-            } elseif ($_SESSION['role'] == 'Recruitment Officer') {
+            } elseif ($_SESSION['role'] == 'Recruitment Officer' || $_SESSION['role'] == 'Recruitment Admin') {
               echo '<ul class="nav nav-pills flex-column mb-auto">
               <li>
                 <a href="Inputs.php" class="nav-link text-white">
@@ -321,7 +312,7 @@ if (!isset($_SESSION['name'])) {
                           if ((nama_status == "Drop by Klimaks") || (nama_status == "Drop by Candidate")) {
                             document.getElementById("status").disabled = true;
                           } else if (nama_status == "CV in") {
-                            document.getElementById("status").innerHTML = "<select><option value='Pending'>Pending</option><option value='Drop by Klimaks'>Drop by Klimaks</option><option value='Candidate'>Candidate</option></select>";
+                            document.getElementById("status").innerHTML = "<select><option value='CV in'>CV in</option><option value='Pending'>Pending</option><option value='Drop by Klimaks'>Drop by Klimaks</option><option value='Candidate'>Candidate</option></select>";
                           } else if (nama_status == "Candidate") {
                             document.getElementById("status").innerHTML = "<select><option value='Candidate'>Candidate</option><option value='In Progress'>In Progress</option><option value='Drop by Candidate'>Drop by Candidate</option></select>";
                           } else if (nama_status == "In Progress") {
@@ -345,7 +336,7 @@ if (!isset($_SESSION['name'])) {
                           } else if (nama_status == "-" || nama_status == "") {
                             document.getElementById("status").innerHTML = "<select><option value='CV in'>CV in</option><option value='Drop'>Drop</option></select>";
                           } else if (nama_status == "Drop") {
-                            document.getElementById("status").innerHTML = "<select><option value='CV in'>CV in</option><option value='CV in'>CV in</option></select>";
+                            document.getElementById("status").innerHTML = "<select><option value='Drop'>Drop</option><option value='CV in'>CV in</option></select>";
                           }
                         </script>
                       <?php

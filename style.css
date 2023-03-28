@@ -4,6 +4,10 @@ html,
     width: 100vw;
   }
 
+  span.homes {
+    color: #3083ff !important;
+  }
+
   .layout {
     display: flex;
   }

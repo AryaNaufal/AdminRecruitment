@@ -51,7 +51,7 @@ error_reporting(0);
           <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 240px; height: 100vh;">
             <div style="display: flex; justify-content: space-between; align-items: center;">
               <a href="HomePage.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                <span class="fs-5 fw-bolder">Recruitment Admin</span>
+                <span class="fs-5 fw-bolder homes">Recruitment Admin</span>
               </a>
               <i class="close fas fa-xmark mb-2"></i>
             </div>
@@ -91,19 +91,10 @@ error_reporting(0);
               </div>
             </li>
           </ul>';
-            } elseif ($_SESSION['role'] == 'Recruitment Admin') {
-              echo '<ul class="nav nav-pills flex-column mb-auto">
-            <li>
-              <a href="view/inputs.php" class="nav-link text-white">
-                <i class="fas fa-keyboard"></i>
-                Input CV
-              </a>
-            </li>
-          </ul>';
-            } elseif($_SESSION['role'] == 'Recruitment Officer'){
+            } elseif($_SESSION['role'] == 'Recruitment Officer' || $_SESSION['role'] == 'Recruitment Admin'){
               echo '<ul class="nav nav-pills flex-column mb-auto">
               <li>
-                <a href="view/inputs.php" class="nav-link text-white">
+                <a href="view/Inputs.php" class="nav-link text-white">
                   <i class="fas fa-keyboard"></i>
                   Input CV
                 </a>
@@ -131,9 +122,8 @@ error_reporting(0);
 
       <!-- Main Content -->
       <main class="content overflow-scroll" style="height: 100vh;">
-        <header style="display: flex; background-color: #0d6efd; justify-content: space-between; align-items: center; height: 50px; padding-right: 20px;">
+        <header style="display: flex; background-color: #0d6efd; justify-content: space-between; align-items: center; height: 60px; padding-right: 20px;">
           <i class="menu fas fa-bars m-5 text-white"></i>
-
           <div class="dropdown">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="fas fa-user-cog me-3"></i>
@@ -354,8 +344,6 @@ error_reporting(0);
   <script src="public/DataTables-1/js/jquery.dataTables.min.js"></script>
   <script src="public/DataTables-1/js/dataTables.bootstrap5.min.js"></script>
 
-  <!-- <script src="public/DataTables-1/js/jquery.dataTables.min.js"></script>
-  <script src="public/DataTables-1/js/dataTables.bootstrap5.min.js"></script> -->
   <script src="js/index.js"></script>
 
 

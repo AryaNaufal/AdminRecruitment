@@ -5,7 +5,7 @@ if (isset($_POST['Submit'])) {
   $Channel = $_POST['Channel'];
 
   $sql = mysqli_query($conn, "INSERT INTO channel (nama_ch) VALUES ('$Channel')");
-  header("location: Add.php");
+  header("location: Inputs.php");
 }
 ?>
 <!DOCTYPE html>
@@ -81,16 +81,7 @@ if (isset($_POST['Submit'])) {
               </div>
             </li>
           </ul>';
-            } elseif ($_SESSION['role'] == 'Recruitment Admin') {
-              echo '<ul class="nav nav-pills flex-column mb-auto">
-            <li>
-              <a href="Inputs.php" class="nav-link text-white active">
-                <i class="fas fa-keyboard"></i>
-                Input CV
-              </a>
-            </li>
-          </ul>';
-            } elseif($_SESSION['role'] == 'Recruitment Officer'){
+            } elseif($_SESSION['role'] == 'Recruitment Officer' || $_SESSION['role'] == 'Recruitment Admin'){
               echo '<ul class="nav nav-pills flex-column mb-auto">
               <li>
                 <a href="Inputs.php" class="nav-link text-white active">

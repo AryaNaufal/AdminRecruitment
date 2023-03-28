@@ -56,7 +56,7 @@ include 'config.php';
     <div class="form bg-white rounded-3 shadow-sm p-5">
       <h1>Login</h1>
       <hr>
-      <form action="function/login.php" method="POST">
+      <form action="function/Login.php" method="POST">
         <div class="mb-3">
           <label for="mails" class="form-label">Email</label>
           <input type="email" class="form-control" name="mails" id="mails" aria-describedby="emailHelp">
@@ -66,9 +66,9 @@ include 'config.php';
           <input type="password" class="form-control" name="password" id="password">
           <i class="fas fa-eye"></i>
         </div>
-        <div class="mb-3">
+        <!-- <div class="mb-3">
           <a href="view/ResetPass.php" class="">Forgot Password?</a>
-        </div>
+        </div> -->
         <div class="mx-3">
           <input type="submit" class="btn btn-success float-end" name="submit" value="Login">
           <a href="Register.php" class="btn btn-primary float-end mx-3">Sign Up</a>

@@ -94,16 +94,7 @@ parse_str($url_components['query'], $params);
               </div>
             </li>
           </ul>';
-            } elseif ($_SESSION['role'] == 'Recruitment Admin') {
-              echo '<ul class="nav nav-pills flex-column mb-auto">
-            <li>
-              <a href="Inputs.php" class="nav-link text-white">
-                <i class="fas fa-keyboard"></i>
-                Input CV
-              </a>
-            </li>
-          </ul>';
-            } elseif ($_SESSION['role'] == 'Recruitment Officer') {
+            } elseif ($_SESSION['role'] == 'Recruitment Officer' || $_SESSION['role'] == 'Recruitment Admin') {
               echo '<ul class="nav nav-pills flex-column mb-auto">
             <li>
               <a href="Inputs.php" class="nav-link text-white">

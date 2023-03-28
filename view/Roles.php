@@ -143,6 +143,7 @@ if ($_SESSION['role'] != 'Administrator') {
                       <li><a href='?id=$row[id]' class='text-decoration-none'> <button class='dropdown-item' name='tes2' value='Recruitment Admin'>Recruitment Admin</button></a></li>            
                       <li><a href='?id=$row[id]' class='text-decoration-none'> <button class='dropdown-item' name='tes3' value='Recruitment Officer'>Recruitment Officer</button></a></li>            
                       </form>
+                      <li><a href='../function/ResetPass.php?id=$row[id]' class='text-decoration-none'> <button class='dropdown-item' name='resetPass'>Reset Pass</button></a></li>            
                     </ul>
                     </td>";
                     }

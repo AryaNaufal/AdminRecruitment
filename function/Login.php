@@ -29,7 +29,7 @@ if (!empty($mail) && !empty($pass)) {
       echo "<script>alert('User/Pass salah!'); window.location.href = '../index.php';</script>";
     }
   } else {
-    echo "<script>alert('All input fields are required!'); window.location.href = '../index.php';</script>";
+    echo "<script>alert('Email tidak ditemukan!'); window.location.href = '../index.php';</script>";
   }
 } else {
   echo "<script>alert('All input fields are required!'); window.location.href = '../index.php';</script>";

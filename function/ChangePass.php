@@ -8,7 +8,7 @@ $hash = password_hash($passChange, PASSWORD_DEFAULT);
 
 if (!empty($mail) && !empty($pass) && !empty($passChange)) {
   # code...
-  $sql = mysqli_query($conn, "SELECT * FROM user WHERE mail = '$mail'");
+  $sql = mysqli_query($conn, "SELECT * FROM user WHERE email = '$mail'");
   if (mysqli_num_rows($sql) > 0) {
     # code...
     $row = mysqli_fetch_assoc($sql);
@@ -16,10 +16,12 @@ if (!empty($mail) && !empty($pass) && !empty($passChange)) {
     $user_pass = password_verify($pass, $enc_pass);
 
     if ($user_pass) {
-      mysqli_query($conn, "UPDATE user SET password = '$hash' WHERE mail = '$mail'");
-      header("location: ../input.php");
+      mysqli_query($conn, "UPDATE user SET password = '$hash' WHERE email = '$mail'");
+      // header("location: ../HomePage.php");
+      echo "<script>alert('Password Berhasil diubah'); window.location.href = '../HomePage.php';</script>";
+
     } else {
-      echo "<script>alert('Password salah!'); window.location.href = '../input.php';</script>";
+      echo "<script>alert('Password salah!'); window.location.href = '../HomePage.php';</script>";
     }
   } else {
     echo "<script>alert('Email tidak ditemukan!'); window.location.href = '../view/ChangePass.php';</script>";
