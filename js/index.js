@@ -27,5 +27,7 @@ $(document).ready(function () {
   });
 });
 
-
+function reload() {
+  location.reload();
+}
 

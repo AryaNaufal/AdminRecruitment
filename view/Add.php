@@ -82,10 +82,10 @@ $itsNIT = mysqli_query($conn, "SELECT kategori FROM category WHERE kategori in('
           <select id="kategori" onchange="tampilKategori()" class="form-select shadow-none" aria-label="Default select example" name="category">
             <option selected>-</option>
             <?php
-            // while ($kategori = mysqli_fetch_array($ktg)) {
-            //   echo "<option value='" . $kategori['kategori'] . "'";
-            //   echo ">" . $kategori['kategori'] . "</option>";
-            // }
+            while ($kategori = mysqli_fetch_array($ktg)) {
+              echo "<option value='" . $kategori['kategori'] . "'";
+              echo ">" . $kategori['kategori'] . "</option>";
+            }
             ?>
           </select>
         </div>

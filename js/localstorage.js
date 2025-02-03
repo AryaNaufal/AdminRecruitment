@@ -1,4 +1,4 @@
-document.getElementById("date").value = localStorage.getItem("inputdate");
+document.getElementById("datepicker").value = localStorage.getItem("inputdate");
 document.getElementById("nama").value = localStorage.getItem("inputname");
 document.getElementById("NoTelp").value = localStorage.getItem("inputNoTelp");
 document.getElementById("institution").value = localStorage.getItem("inputInstitution");
@@ -7,7 +7,7 @@ document.getElementById("experience").value = localStorage.getItem("inputExperie
 document.getElementById("chanel").value = localStorage.getItem("inputchanel");
 
 function savelocal() {
-  let dates = document.getElementById("date").value;
+  let dates = document.getElementById("datepicker").value;
   let name = document.getElementById("nama").value;
   let telp = document.getElementById("NoTelp").value;
   let institut = document.getElementById("institution").value;
@@ -25,7 +25,7 @@ function savelocal() {
 }
 
 function deletelocal() {
-  let dates = document.getElementById("date").value;
+  let dates = document.getElementById("datepicker").value;
   let name = document.getElementById("nama").value;
   let telp = document.getElementById("NoTelp").value;
   let institut = document.getElementById("institution").value;

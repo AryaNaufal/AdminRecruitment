@@ -1,11 +1,12 @@
 <?php
+session_start();
 date_default_timezone_set('Asia/Jakarta');
 include '../config.php';
 
 if (isset($_POST['Edit'])) {
 
   $id = $_POST['id'];
-  $histori = $_POST['histori'];
+  $username = $_SESSION['name'];
   $Tanggal = $_POST['tanggal'];
   $Nama = $_POST['nama'];
   $Telp = $_POST['noTelp'];
@@ -20,6 +21,7 @@ if (isset($_POST['Edit'])) {
   $Kelulusan = $_POST['kelulusan'];
   $Pengalaman = $_POST['experience'];
   $Status = $_POST['status'];
+  $Remark = $_POST['remark'];
 
   $dir = "../cv";
   $file_name = basename($_FILES['files']['name']);
@@ -28,10 +30,10 @@ if (isset($_POST['Edit'])) {
   $upload_file = $_FILES['files']['tmp_name'];
   $new_name = $file_name;
 
-  $Lolos = 'CV In';
+  $Lolos = 'CV in';
   $TidakLolos = 'Drop';
 
-  if ($file_size < 1000000 and ($file_type == 'pdf' OR $file_type == 'docx')) {
+  if ($file_size < 1000000 and ($file_type == 'pdf' or $file_type == 'docx')) {
     move_uploaded_file($upload_file, $dir . '/' . $new_name);
     mysqli_query($conn, "UPDATE cv SET file_cv='$new_name' where id='$id'");
   }
@@ -49,37 +51,18 @@ if (isset($_POST['Edit'])) {
   ipk='$Ipk',
   kelulusan='$Kelulusan',
   status='$Status',
-  pengalaman='$Pengalaman' where id='$id'";
-
-  // $query = "UPDATE cv SET tanggal='$Tanggal', 
-  // nama='$Nama',  
-  // telp='$Telp', 
-  // kategori='$Kategori', 
-  // posisi='$Posisi', 
-  // chanel='$Chanel', 
-  // edukasi='$Edukasi', 
-  // institusi='$Institusi',
-  // jurusan='$Major',
-  // ipk='$Ipk',
-  // kelulusan='$Kelulusan',
-  // status='$Status',
-  // pengalaman='$Pengalaman' where id='$id'";
-
-  // mysqli_query($conn, "UPDATE cv SET kelulusan='Lolos', status='$Lolos' where id='$id'");
-  // mysqli_query($conn, "UPDATE cv SET kelulusan='Tidak Lolos', status='$TidakLolos' where id='$id'");  
-
-  // if ($Kelulusan == 'Lolos') {
-  //   mysqli_query($conn, "UPDATE cv SET kelulusan='$Kelulusan', status='CV in' where id='$id'");
-  // } elseif ($Kelulusan == 'Tidak Lolos') {
-  //   mysqli_query($conn, "UPDATE cv SET kelulusan='$Kelulusan', status='Drop' where id='$id'");
-  // }
+  pengalaman='$Pengalaman',
+  remarks='$Remark' where id='$id'";
 
   mysqli_query($conn, $query);
 
   $waktu = date("Y-m-d H:i:s");
-  if($histori != null && $histori != "") {
-    mysqli_query($conn, "INSERT INTO history (id, nama, histori, data, waktu) VALUES ('$id','$histori', 'Mengedit', '$Nama', '$waktu')");
+  if (!empty($new_name)) {
+    mysqli_query($conn, "INSERT INTO history (id, nama, histori, data, waktu, status) VALUES ('$id','$username', 'Mengupload', '$Nama', '$waktu', '$Status')");
+  } elseif (isset($Status)) {
+    mysqli_query($conn, "INSERT INTO history (id, nama, histori, data, waktu, status) VALUES ('$id','$username', 'Mengedit', '$Nama', '$waktu', '$Status')");
   }
 
-  header("location: ../index.php");
+
+  header("location: ../HomePage.php");
 }

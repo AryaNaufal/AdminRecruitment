@@ -1,5 +1,5 @@
 <?php
-
+include '../config.php';
 if (isset($_GET['url'])) {
   $back_dir    = "../cv/";
   $file = $back_dir . $_GET['url'];
@@ -17,6 +17,8 @@ if (isset($_GET['url'])) {
     readfile($file);
     exit;
   } else {
-    echo "Tidak Ada CV";
+    $sql = mysqli_query($conn, "SELECT * FROM cv");
+    $id = $_GET['id'];
+    echo "<script>alert('Tidak Ada CV'); location.href='../view/Info.php?id=$id'</script>";
   }
-} 
+}
